@@ -1,7 +1,6 @@
 import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { DonationsService } from './donations.service';
 import { CreateDonationInput } from './dto/create-donation.input';
-import { UpdateDonationInput } from './dto/update-donation.input';
 
 @Resolver('Donation')
 export class DonationsResolver {
@@ -22,20 +21,5 @@ export class DonationsResolver {
   @Query('donation')
   findOne(@Args('id') id: number) {
     return this.donationsService.findOne(id);
-  }
-
-  @Mutation('updateDonation')
-  update(
-    @Args('updateDonationInput') updateDonationInput: UpdateDonationInput,
-  ) {
-    return this.donationsService.update(
-      updateDonationInput.id,
-      updateDonationInput,
-    );
-  }
-
-  @Mutation('removeDonation')
-  remove(@Args('id') id: number) {
-    return this.donationsService.remove(id);
   }
 }
