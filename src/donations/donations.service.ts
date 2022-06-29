@@ -2,11 +2,12 @@ import { Injectable } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import { PrismaService } from './../../prisma/prisma.service';
 import { OrderByParams } from '../graphql';
+import { DonationCreateInput } from '../@generated/prisma-nestjs-graphql/donation/donation-create.input';
 
 @Injectable()
 export class DonationsService {
   constructor(private prisma: PrismaService) {}
-  create(createDonationInput: Prisma.DonationCreateInput) {
+  create(createDonationInput: DonationCreateInput) {
     return this.prisma.donation.create({ data: createDonationInput });
   }
 
