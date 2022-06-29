@@ -12,6 +12,7 @@ export class DonationsService {
   }
 
   async findAll(orderBy?: OrderByParams) {
+    console.log('init findAll');
     const { field = 'createdAt', direction = 'desc' } = orderBy || {};
     return this.prisma.donation.findMany({
       orderBy: { [field]: direction },
@@ -20,5 +21,13 @@ export class DonationsService {
 
   findOne(donationWhereUniqueInput: Prisma.DonationWhereUniqueInput) {
     return this.prisma.donation.findUnique({ where: donationWhereUniqueInput });
+  }
+
+  async totalDonations() {
+    const response = await this.prisma.donation.aggregate({
+      _sum: { count: true },
+    });
+
+    return response._sum.count;
   }
 }
