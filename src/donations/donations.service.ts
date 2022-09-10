@@ -12,7 +12,6 @@ export class DonationsService {
   }
 
   async findAll(orderBy?: OrderByParams) {
-    console.log('init findAll');
     const { field = 'createdAt', direction = 'desc' } = orderBy || {};
     return this.prisma.donation.findMany({
       orderBy: { [field]: direction },
