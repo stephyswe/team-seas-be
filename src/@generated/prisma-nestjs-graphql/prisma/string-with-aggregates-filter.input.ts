@@ -1,5 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
+import { QueryMode } from './query-mode.enum';
 import { NestedStringWithAggregatesFilter } from './nested-string-with-aggregates-filter.input';
 import { NestedIntFilter } from './nested-int-filter.input';
 import { NestedStringFilter } from './nested-string-filter.input';
@@ -36,6 +37,9 @@ export class StringWithAggregatesFilter {
 
     @Field(() => String, {nullable:true})
     endsWith?: string;
+
+    @Field(() => QueryMode, {nullable:true})
+    mode?: keyof typeof QueryMode;
 
     @Field(() => NestedStringWithAggregatesFilter, {nullable:true})
     not?: NestedStringWithAggregatesFilter;

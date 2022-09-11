@@ -9,6 +9,7 @@ import { DonationsModule } from './donations/donations.module';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       playground: false,
+      introspection: true,
       plugins: [ApolloServerPluginLandingPageLocalDefault],
       typePaths: ['./**/*.graphql'],
       resolvers: { DateTime: GraphQLISODateTime },
