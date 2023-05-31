@@ -28,3 +28,9 @@ GraphQLModule.forRoot<ApolloDriverConfig>({
 ### Seed data
 * heroku run npx prisma db push
 * heroku run npx prisma db seed
+
+### Start docker just to get migrations working
+* docker-compose up -d
+* npx prisma migrate dev --name init
+* docker-compose down
+* heroku run npx prisma migrate

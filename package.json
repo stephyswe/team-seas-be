@@ -18,6 +18,7 @@
     "start:dev": "dotenv -e .env.local nest start --watch",
     "gen-typings": "ts-node ./src/generate-typings",
     "prisma:generate": "dotenv -e .env.local prisma generate --watch",
+    "prisma:migrate": "dotenv -e .env.local prisma migrate dev",
     "prisma:db": "dotenv -e .env.local npx prisma db push",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/src/main",
