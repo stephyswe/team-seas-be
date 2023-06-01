@@ -1,4 +1,12 @@
 [build]
   command = "npm run build"
-  # Add this line:
-  postbuild = "npm run start:prod"
+  publish = "dist" # Update with your build output directory
+
+[plugins]
+  # Specify the name and configuration for your plugin
+  [[plugins]]
+    package = "netlify-plugin-postbuild"
+
+[[plugins.inputs]]
+  # Specify the command you want to run after the build
+  command = "npm run start:prod"
