@@ -1,7 +1,7 @@
 {
   "version": 2,
   "builds": [
-    { "src": "package.json", "use": "npm run build" }
+    { "src": "package.json", "use": "npm run vercel-build" }
   ],
   "routes": [
     { "src": "/(.*)", "dest": "/dist/main.js" }
