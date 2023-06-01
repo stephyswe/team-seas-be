@@ -12,6 +12,7 @@
     "postinstall": "prisma generate",
     "prebuild": "rimraf dist",
     "build": "nest build",
+    "vercel-build": "npm run build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "prestart": "rimraf dist",
     "start": "nest start",
