@@ -11,7 +11,6 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
-    "build:netlify": "npm run build && npm run start:prod",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "prestart": "rimraf dist",
     "start": "nest start",
